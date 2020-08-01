@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<!-- 4. Display the following on the page:
+
+5. Press any key to get started!
+
+6. Wins: (# of times user guessed the word correctly).
+
+   * If the word is `madonna`, display it like this when the game starts: `_ _ _ _ _ _ _`.
+
+   * As the user guesses the correct letters, reveal them: `m a d o _  _ a`.
+
+7. Number of Guesses Remaining: (# of guesses remaining for the user).
+ 
+8. Letters Already Guessed: (Letters the user has guessed, displayed like `L Z Y H`).
+
+9. After the user wins/loses the game should automatically choose another word and make the user play it. -->
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="./Images/WoodstockIcon.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Kalam:300,400,700&display=swap" rel="stylesheet">
+  <title>Guess The Woodstock Band</title>
+</head>
+
+<body>
+
+  <!-- page header -->
+  <header class="container-fluid text-center text-white p-0">
+    <div class="row no-gutters justify-content-center">
+
+      <div id="imgL1" class="col-1 d-none d-sm-inline">
+        <img class="img-fluid picture" width="100%" height="auto%" src="./Images/woodstock/L1jimi.png" alt="responsive image">
+      </div>
+
+      <div id="imgL2" class="col-2 d-none d-sm-inline">
+        <img class="img-fluid picture" width="100%" height="auto%" src="./Images/woodstock/L2joni.png" alt="responsive image">
+      </div>
+
+      <div id="imgC6" class="col-12 col-sm-6">
+        <img class="img-fluid picture" 
+          width="100%" height="auto" 
+          src="./Images/woodstock/woodstockLoGo0.png"
+          alt="responsive image">
+        <span id="prestart" class="banner-text">Guess Who Played</span>
+      </div>
+
+      <div id="imgR2" class="col-2 d-none d-sm-inline">
+        <img class="img-fluid picture" width="100%" height="auto" src="./Images/woodstock/R2CCR.png" alt="responsive image">
+      </div>
+
+      <div id="imgR1" class="col-1 d-none d-sm-inline">
+        <img class="img-fluid picture" width="100%" height="auto" src="./Images/woodstock/R1tya.png" alt="responsive image">
+      </div>
+    </div>
+    
+    <!-- <div id="prestart" class="row no-gutters justify-content-center banner-text">
+      <div class="col-12">
+        <span>Guess Who Played</span>
+      </div>
+    </div> -->
+  </header>
+
+    <!-- end of header -->
+
+    <!--***************** redo lay out according to wireframe *********************** -->
+
+    <div class="row no-gutters justify-content-center">
+
+      <!-- answer sidebar -->
+
+      <div class="col-5 d-none d-sm-inline">
+        
+      </div>
+
+      <!-- end of answer sidebar -->
+
+      <!-- center image -->
+
+      <div class="col-2 d-none d-sm-inline" id="centerPicture">
+        <img id="imgC2" class="img-fluid picture" id="C2" width="100%" height="auto" 
+          src="./Images/woodstock/C2couple.png"
+          alt="responsive image">
+      </div>
+
+      <!-- end of center image -->
+
+      <!-- control board -->
+
+      <div class="col-5 d-none d-sm-inline">
+       
+      </div>
+
+      <!-- control board -->
+    </div>
+
+
+    <!-- start of gameboard -->
+
+    <div class="row justify-content-center m-0 gameboard">
+
+      <div class="col-6">
+        <p id="start">
+          <i class="fa fa-hand-point-right" style="font-size: 1rem;"></i>
+          &ThickSpace;
+          Press any letter to start the round
+          &ThickSpace;
+          <i class="fa fa-hand-point-left" style="font-size: 1rem;"></i>
+          <br>
+          and enter your first guess
+        </p>
+        <p id="answer"></p>
+        <p id="soFar">Your Guesses so Far: </p>
+        <p id="guessessLeft">Guesses Left: </p>
+        <p id="wins">Guesses: Correct / Total: </p>
+      </div>
+
+    </div>
+
+    <!-- end of gameboard -->
+
+
+  </div>
+  <!-- end of container -->
+
+  <script src="https://kit.fontawesome.com/929c44d1c0.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script src="./javaScript/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+  @font-face {
+    font-family: woodstock;
+    src: url(./Woodstock.ttf);
+  }
+
+  body {
+    background-color: rgb(14, 14, 77);
+    font-family: 'woodstock',sans-serif;
+    font-size: 1.5rem;
+  }
+  
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#imgC6 {
+  position: relative;
+}
+
+   #prestart {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 500;
+    color: rgb(7, 7, 56);
+    opacity: 0;
+  }
+
+#centerPicture {
+  margin-top: 4.5vh;    /* need to make this responsive */
+}
+
+.gameboard {
+  font-family: 'woodstock',sans-serif;
+  font-size: 1.5rem;
+  color: yellow;
+  text-align: center;
+  }
+
+
+#start {   
+  margin-top: 20px;
+  color: yellow;
+ }
+
+/*@font-face {
+    font-family: OldeBarnsby;
+    src: url(./OldeBarnsby.ttf);
+  }
+
+  @font-face {
+    font-family: Kalam-Bold;
+    src: url(./Kalam-Bold.ttf);
+    font-weight: bold;
+  }
+
+  @font-face {
+    font-family: Kalam-Regular;
+    src: url(./Kalam-Regular.ttf);
+    font-weight: normal;
+  }
+
+  @font-face {
+    font-family: Kalam-Light;
+    src: url(./Kalam-Light.ttf);
+    font-weight: lighter;
+  }*/
+  
+/* 
+@media screen and (min-width: 660px) {
+    .banner-text { font-size: 1.25rem; }
+}
+@media (min-width: 768px) {
+    .banner-text { font-size: 1.5rem; }
+}
+@media (min-width: 992px) {
+    .banner-text { font-size: 1.75rem; }
+}
+@media (min-width: 1200px) {
+    .banner-text { font-size: 2rem; }
+} */

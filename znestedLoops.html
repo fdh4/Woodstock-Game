@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Loops Test</title>
+    <link rel="icon" href="./Images/WoodstockIcon.png">
+
+      <style>
+        * {
+            background-color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            line-height: 1.25rem;
+            color:blue;
+            text-align: center;
+          }
+
+        img {
+          display: block;
+          margin:auto auto;
+        }
+
+        .banner {
+        display: flex;
+        justify-content:space-around; 
+        }
+
+        .gameboard {
+          display: block;
+          margin-top: auto auto;
+        }
+
+        .picture {
+          cursor: pointer;
+        }
+
+      </style>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+              integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" 
+              crossorigin="anonymous"></script>
+</head>
+<body>
+
+<p id="start">press any key to start</p>
+<p id="key">key pressed: </p>
+<p id="keys">keys pressed so far: </p>
+<p id="guessessLeft">Guesses Left: 5</p>
+<p id="games">Games played: 0</p>
+<div class="banner">
+    <img id="imgL2" class="img-fluid picture" width="20%" height="auto%" src="./Images/woodstock/L2joni.png" alt="responsive image">
+  
+    <img id="imgR2" class="img-fluid picture" width="20%" height="auto" src="./Images/woodstock/R2CCR.png" alt="responsive image">
+</div>
+
+<div class="gameboard">
+  <img id="imgC2" class="img-fluid picture" width="20%" height="auto" src="./Images/woodstock/C2couple.png"
+    alt="responsive image">
+</div>
+
+<script>
+var enteredLetter = ""; // x
+var lettersentered = ""; // x
+var song = ""; // x
+var guessesLeft = 5;  // x
+var gamesPlayed = 0;  // n ?need
+var playGame = true;  // x
+// var pic = [];  // n  ? need
+var songPlaying = false; // x
+
+var songs = ["arlo.mp3", "santana.mp3", "CountryJoe.mp3", "CCR.m4a",
+  "csny.mp3", "jerry.m4a", "janis.m4a",
+  "jimi.mp3", "joan.mp3", "joe.mp3", "joni.mp3", "richie.mp3",
+  "tya.mp3", "TheWho.mp3"
+];
+
+function playIt(sound) {
+      /* jshint -W087 */
+      debugger; 
+
+  if(songPlaying) {  // fade out song if one is playing and remove element
+
+    let activeElement = document.getElementById("nowPlaying")
+    let oVal = activeElement.volume  // obtain the original volume value
+
+    let sVal = 1;    // set the starting scale value to 0
+    let eVal = 0;    // set the final scale value to 0
+    let cVal = 1;    // set current scale value to 1
+
+    let action = setInterval(fadeOut, 10);  // not yet functional - w i p
+
+    function fadeOut() {
+      if (cVal <= 0) {
+        clearInterval(action);
+        activeElement.remove;
+        nextSong(sound)
+      }
+      else {
+        cVal -= 0.005;
+        let newvol = oVal * cVal;
+        activeElement.volume = newvol;
+      }
+    }  // end of fade out function  
+  };   // end of 'if song playing' loop
+
+  function nextSong(sound) { 
+
+    let x = document.createElement("AUDIO");
+    x.setAttribute("src", sound);
+    x.setAttribute("autoplay", "true");
+    x.setAttribute("id", "nowPlaying");
+    x.load();
+    x.play();
+    document.body.appendChild(x);
+
+    let activeElement = document.getElementById("nowPlaying");
+    activeElement.volume = 0;
+
+    let sVal = 0;    // set the starting scale value to 0
+    let eVal = 1;    // set the final scale value to 1
+    let cVal = 0;    // set current scale value to 0
+    let oVal = 0;    // set original volume value to 0
+
+    let action = setInterval(fadeIn, 10);  // not yet functional - w i p
+
+    function fadeIn() {
+      if (cVal >= 1){
+        clearInterval(action);
+      }
+      else {
+        cVal += 0.005;
+        let newvol = cVal;
+        activeElement.volume = newvol;
+      }
+    }
+  }
+}
+
+document.addEventListener('click', function(e) {
+  e = e || window.event;
+  let target = e.target || e.srcElement;
+
+        /* jshint -W087 */
+        // debugger; 
+
+      // console.log("target.className: " + target.className);
+      //if (target.className == "img-fluid picture")
+
+  if (target.className.includes("img-fluid picture")) {
+    // console.log("image Clicked");
+    let s = target.src;
+    let t = "woodstock/";
+    let p = s.search(t);
+        p = p + t.length + 2;
+    let a = s.slice(p);
+        p = a.search(".png");
+        a = a.slice(0,p);
+    // console.log(a);
+    song = "";
+    for (let i = 0; i < songs.length; i++) {
+      // console.log(songs[i]);
+      if (songs[i].includes(a)) {
+        song = "./music/" + songs[i];
+      }
+    }
+    // console.log(song);
+    playIt(song);
+    songPlaying = true;
+  }
+}, false); 
+
+// function doHomework(subject, callback) {
+//   alert ("Starting my " + subject + " homework. ");
+//   callback();
+// }
+
+// function alertFinished() {
+//   alert("Finished my homework!");
+// }
+
+// doHomework("math", alertFinished);
+
+// doHomework("math"); 
+
+document.onkeyup = function(event) {
+  enteredLetter = event.key;
+        lettersentered += enteredLetter+", ";
+        guessesLeft--;
+        document.getElementById("start").innerHTML = "";
+        document.getElementById("key").innerHTML = "key pressed:   " + enteredLetter;
+        document.getElementById("keys").innerHTML = "keys pressed so far: " + lettersentered;
+        document.getElementById("guessessLeft").innerHTML = "guessess Left: " + guessesLeft;
+        document.getElementById("games").innerHTML = "Games played: " + gamesPlayed;
+
+        if (guessesLeft === 0 ) {
+          guessesLeft = 5;
+          gamesPlayed ++
+          lettersentered = ""
+          enteredLetter = ""
+          document.getElementById("start").innerHTML = "";
+          document.getElementById("key").innerHTML = "key pressed:   " + enteredLetter;
+          document.getElementById("keys").innerHTML = "keys pressed so far: " + lettersentered;
+          document.getElementById("guessessLeft").innerHTML = "guessess Left: " + guessesLeft;
+          document.getElementById("games").innerHTML = "Games played: " + gamesPlayed;
+
+        }
+        // console.log("games played : " + gamesPlayed);
+        
+        if (gamesPlayed === 3) {
+        document.getElementById("start").innerHTML = "";
+        document.getElementById("key").innerHTML = "";
+        document.getElementById("keys").innerHTML = "";
+        document.getElementById("guessessLeft").innerHTML = "";
+        document.getElementById("games").innerHTML = "";
+        }
+    }
+
+</script>
+</body>
+</html>
